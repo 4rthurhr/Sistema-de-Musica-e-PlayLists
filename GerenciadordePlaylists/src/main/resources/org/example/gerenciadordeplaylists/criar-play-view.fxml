@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane prefHeight="345.0" prefWidth="349.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.gerenciadordeplaylists.Controller.PlaylistController">
+   <children>
+      <Label layoutX="141.0" layoutY="27.0" text="Criar PlayList" />
+      <Label layoutX="18.0" layoutY="69.0" text="Titulo" />
+      <TextField fx:id="txtitulo" layoutX="18.0" layoutY="86.0" />
+      <ListView fx:id="listView" layoutX="18.0" layoutY="121.0" prefHeight="138.0" prefWidth="314.0" />
+      <Button layoutX="280.0" layoutY="306.0" mnemonicParsing="false" text="Salvar" onAction="#addPlaylist"/>
+   </children>
+</AnchorPane>

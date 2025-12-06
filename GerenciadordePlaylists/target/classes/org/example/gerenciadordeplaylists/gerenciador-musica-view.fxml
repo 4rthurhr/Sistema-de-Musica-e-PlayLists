@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="431.0" prefWidth="478.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.gerenciadordeplaylists.Controller.MainController">
+   <children>
+      <TextFlow prefHeight="50.0" prefWidth="478.0">
+         <children>
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="55.0" prefWidth="478.0" text="BadMusic">
+               <font>
+                  <Font size="22.0" />
+               </font></Label>
+            <Separator prefHeight="0.0" prefWidth="482.0" />
+         </children></TextFlow>
+      <ListView fx:id="listView" layoutX="229.0" layoutY="70.0" prefHeight="291.0" prefWidth="235.0" />
+      <Button layoutX="14.0" layoutY="89.0" mnemonicParsing="false" text="PlayList" onAction="#mostrarPlaylists"/>
+      <Button layoutX="81.0" layoutY="89.0" mnemonicParsing="false" text="Musicas" onAction="#mostrarMusicas"/>
+      <Button layoutX="366.0" layoutY="384.0" mnemonicParsing="false" onAction="#abrirPlay" text="Adicionar Playlist" />
+      <Button layoutX="248.0" layoutY="384.0" mnemonicParsing="false" onAction="#abrir" text="Adicionar Musicas" />
+      <Separator layoutY="374.0" prefHeight="3.0" prefWidth="478.0" />
+   </children>
+</AnchorPane>
