@@ -30,12 +30,11 @@ public class MusicaController {
     }
 
     public void initialize(){
-        listMusica = FXCollections.observableArrayList();
-        musicaListView.setItems(listMusica);
+
     }
 
     public void setMusic(ObservableList<Musica> musicaExistente){
-        listMusica = musicaExistente;
+        this.listMusica = musicaExistente;
         musicaListView.setItems(listMusica);
     }
 
@@ -58,7 +57,6 @@ public class MusicaController {
             System.out.println("Erro muisca não selecionada");
         }
 
-        int id  = selecionado.getId();
 
        musicaDao.removerPorId(selecionado.getId());
 

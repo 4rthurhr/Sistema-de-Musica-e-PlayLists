@@ -9,6 +9,8 @@ import javafx.scene.control.TextField;
 import org.example.gerenciadordeplaylists.Dao.PlayListDao;
 import org.example.gerenciadordeplaylists.Models.PlayList;
 
+import java.sql.SQLException;
+
 public class PlaylistController {
     @FXML
     private ListView<PlayList> listView;
@@ -27,7 +29,7 @@ public class PlaylistController {
     }
 
     public void setPlayLists(ObservableList<PlayList> playExistentes){
-        playLists = playExistentes;
+        this.playLists = playExistentes;
         listView.setItems(playLists);
     }
 
@@ -37,6 +39,19 @@ public class PlaylistController {
         PlayList p = new PlayList(0, titutlo);
         playListDao.inserir(p);
         playLists.add(p);
+    }
+
+    @FXML
+    public void removerPlay() throws SQLException {
+        PlayList selecionado = listView.getSelectionModel().getSelectedItem();
+
+
+        if (selecionado == null){
+            System.out.println("Não a playList Selecionada ");
+        } else {
+            playListDao.remover(selecionado.getId());
+            playLists.remove(selecionado);
+        }
     }
 
 

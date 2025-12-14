@@ -29,13 +29,13 @@ public class PlayListDao {
 
     }
 
-    public void remover(PlayList p) throws SQLException {
+    public void remover(int p) throws SQLException {
         String sql = "DELETE FROM playlist WHERE id = ?";
 
         try (Connection conn = Conexaodb.get();
              PreparedStatement pst = conn.prepareStatement(sql)){
 
-            pst.setInt(1, p.getId());
+            pst.setInt(1, p);
             pst.executeUpdate();
 
         } catch (SQLException e) {

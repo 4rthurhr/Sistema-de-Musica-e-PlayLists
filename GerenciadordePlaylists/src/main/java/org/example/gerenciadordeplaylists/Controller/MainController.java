@@ -7,6 +7,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.stage.Stage;
 import org.example.gerenciadordeplaylists.Dao.MusicaDao;
@@ -30,31 +31,33 @@ public class MainController {
 
         playLists = FXCollections.observableArrayList(playListDao.listar());
         musicas = FXCollections.observableArrayList(musicaDao.listar());
+
+        listView.setCellFactory(lv -> new ListCell<>() {
+            @Override
+            protected void updateItem(Object item, boolean empty) {
+                super.updateItem(item, empty);
+
+                if (empty || item == null) {
+                    setText(null);
+                } else if (item instanceof Musica m) {
+                    setText(m.getTitulo() + " - " + m.getArtista());
+                } else if (item instanceof PlayList p) {
+                    setText(p.getTitulo());
+                }
+            }
+        });
+
     }
 
 
     @FXML
     public void mostrarMusicas() {
-        listView.getItems().clear();
-        if(!musicas.isEmpty()){
-            musicaDao.listar().forEach(m ->
-                    listView.getItems().add(m.getTitulo() + " - " + m.getArtista())
-            );
-        } else {
-            System.out.println("Nenhuma muisca!");
-        }
-
+       listView.setItems((ObservableList) musicas);
     }
 
     @FXML
     public void mostrarPlaylists() {
-        listView.getItems().clear();
-
-        if (!playLists.isEmpty()) {
-            playLists.forEach(p -> listView.getItems().add(p.getTitulo()));
-        } else {
-            System.out.println("Nenhuma play");
-        }
+       listView.setItems((ObservableList) playLists);
     }
 
 

@@ -69,16 +69,21 @@ public class MusicaDao {
 
     public List<Musica> listar(){
         List<Musica> listaMusic = new ArrayList<>();
-        String sql = "SELECT titulo, artista FROM musica";
+        String sql = "SELECT id, titulo, artista, playlist_id FROM musica";
+
 
         try (Connection conn = Conexaodb.get();
              Statement st = conn.createStatement();
              ResultSet rs = st.executeQuery(sql)){
 
             while (rs.next()){
-                listaMusic.add(new Musica(rs.getString("titulo"), rs.getString("artista")));
+                listaMusic.add(new Musica(
+                        rs.getInt("id"),
+                        rs.getString("titulo"),
+                        rs.getString("artista"),
+                        rs.getObject("playlist_id") == null ? null : rs.getInt("playlist_id")
+                ));
             }
-
 
         } catch (SQLException e) {
             throw new RuntimeException(e);

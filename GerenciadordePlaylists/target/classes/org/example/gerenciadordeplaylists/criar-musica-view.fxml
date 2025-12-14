@@ -21,6 +21,6 @@
       <Button layoutX="306.0" layoutY="340.0" mnemonicParsing="false" onAction="#addMusica" text="Adicionar" />
       <Button layoutX="228.0" layoutY="340.0" mnemonicParsing="false" text="Cancelar" />
       <ListView fx:id="musicaListView" layoutX="14.0" layoutY="160.0" prefHeight="164.0" prefWidth="362.0" />
-      <Button layoutX="14.0" layoutY="340.0" mnemonicParsing="false" text="Remover" onAction="#removerMuisca"/>
+      <Button layoutX="14.0" layoutY="340.0" mnemonicParsing="false" onAction="#removerMuisca" text="Remover" />
    </children>
 </AnchorPane>
